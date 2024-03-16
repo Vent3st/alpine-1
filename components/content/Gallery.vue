@@ -18,8 +18,8 @@ defineProps({
         v-for="(image, index) in images"
         :key="index"
         :src="image"
-        :width="16"
-        :height="9"
+        :width="320"
+        :height="180"
       />
     </div>
   </section>

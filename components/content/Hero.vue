@@ -36,7 +36,7 @@ defineProps({
         :src="image"
         :alt="imageAlt"
         :width="16"
-        :height="9"
+        :height="16"
       />
     </div>
   </section>
@@ -64,7 +64,7 @@ css({
       },
       img: {
         width: '100%',
-        aspectRatio: '16 / 9',
+        aspectRatio: '1 / 1',
         objectFit: 'cover',
         borderRadius: '{radii.md}',
         '&.left': {
