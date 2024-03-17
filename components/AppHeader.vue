@@ -20,10 +20,10 @@ const show = ref(false)
       <MainNav @link-click="show = !show" />
     </div>
 
-    <div class="logo">
+   <!--  <div class="logo">
       <NuxtLink v-if="alpine.header.logo" to="/">
-        <!-- TODO: width/height doesn't make much sense here, but Lighthouse requires it. 
-        Used current Alpine logo ratio, will break on enduser logo -->
+         TODO: width/height doesn't make much sense here, but Lighthouse requires it. 
+        Used current Alpine logo ratio, will break on enduser logo 
         <NuxtImg class="dark-img" :src="alpine.header.logo.pathDark" :alt="alpine.header.logo.alt" width="89" height="31" />
         <NuxtImg class="light-img" :src="alpine.header.logo.path" :alt="alpine.header.logo.alt" width="89" height="31" />
       </NuxtLink>
@@ -31,7 +31,7 @@ const show = ref(false)
         {{ alpine.title }}
       </NuxtLink>
     </div>
-
+  -->
     <div class="main-nav">
       <MainNav />
     </div>
