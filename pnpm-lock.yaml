@@ -55,8 +55,8 @@ importers:
         specifier: ^0.8.1
         version: 0.8.1(@nuxt/kit@3.9.3)(rollup@3.29.3)
       vue:
-        specifier: ^3.4.15
-        version: 3.4.15(typescript@5.3.3)
+        specifier: ^3.4.20
+        version: 3.4.20(typescript@5.3.3)
 
   .starters/default:
     devDependencies:
