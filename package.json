@@ -43,7 +43,7 @@
     "release-it": "^16.3.0",
     "typescript": "^5.3.3",
     "vite-plugin-inspect": "^0.8.1",
-    "vue": "^3.4.20"
+    "vue": "^3.4.21"
   },
   "pnpm": {
     "overrides": {
