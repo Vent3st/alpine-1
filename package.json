@@ -46,6 +46,11 @@
     "vue": "^3.4.15"
   },
   "pnpm": {
+    "overrides": {
+      "vue": "^3.4.15"
+    }
+  },
+  "pnpm": {
     "peerDependencyRules": {
       "allowedVersions": {
         "axios": "0.25.0",
