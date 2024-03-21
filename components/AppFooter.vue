@@ -8,9 +8,10 @@ const alpine = useAppConfig().alpine
       alpine.footer.alignment
     ]"
   >
-    <NuxtLink v-if="alpine.footer?.credits?.enabled" class="credits" :to="alpine.footer.credits.repository">
+    <!-- <NuxtLink v-if="alpine.footer?.credits?.enabled" class="credits" :to="alpine.footer.credits.repository">
       {{ alpine.footer?.credits?.text }}
     </NuxtLink>
+  -->
 
     <div v-if="alpine.footer.navigation" class="navigation">
       <MainNav />
