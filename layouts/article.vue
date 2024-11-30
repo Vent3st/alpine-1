@@ -77,7 +77,7 @@ css({
     mx: 'auto',
     py: '{space.4}',
     '@sm': {
-      py: '{space.12}',
+      py: '{space.1}',
     },
     '.back': {
       display: 'inline-flex',
@@ -91,7 +91,7 @@ css({
       }
     },
     header: {
-      marginTop: '{space.16}',
+      marginTop: '{space.8}',
       marginBottom: '{space.12}',
     },
     '.title': {

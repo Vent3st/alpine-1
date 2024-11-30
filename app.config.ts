@@ -8,6 +8,10 @@ export default defineAppConfig({
       width: 400,
       height: 300
     },
+    ui: {
+      badge: true,
+      card: true
+    },
     header: {
       position: 'right',
       logo: {

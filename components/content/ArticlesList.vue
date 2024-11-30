@@ -8,8 +8,26 @@ const props = defineProps({
   }
 })
 
+// List of articles to hide
+const excludedArticles = [
+  'get-started',
+  'configure',
+  'write-articles',
+  'design-tokens'
+]
+
 // @ts-ignore
-const { data: _articles } = await useAsyncData(props.path, async () => await queryContent(withTrailingSlash(props.path)).sort({ date: -1 }).find())
+const { data: _articles } = await useAsyncData(props.path, async () => {
+  const articles = await queryContent(withTrailingSlash(props.path))
+    .sort({ date: -1 })
+    .find()
+    
+  // Filter out unwanted articles
+  return articles.filter(article => {
+    const path = article._path?.split('/').pop() // Get the filename without path
+    return !excludedArticles.some(excluded => path?.includes(excluded))
+  })
+})
 
 const articles = computed(() => _articles.value || [])
 </script>

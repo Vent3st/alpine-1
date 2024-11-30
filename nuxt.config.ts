@@ -33,6 +33,7 @@ export default defineNuxtConfig({
     head: {
       htmlAttrs: {
         lang: 'en'
+
       }
     }
   },
@@ -76,6 +77,11 @@ export default defineNuxtConfig({
       preload: ['json', 'js', 'ts', 'html', 'css', 'vue', 'diff', 'shell', 'markdown', 'yaml', 'bash', 'ini', 'c', 'cpp']
     }
   },
+  markdown: {
+    markdownit: {
+      use: ['markdown-it-attrs'] // Enable the plugin
+    }
+  },
   experimental: {
     inlineSSRStyles: false
   },
@@ -87,4 +93,4 @@ export default defineNuxtConfig({
       ignore: ['/__pinceau_tokens_config.json', '/__pinceau_tokens_schema.json']
     }
   },
-})
+} satisfies NuxtConfig)   
