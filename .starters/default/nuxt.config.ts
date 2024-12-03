@@ -8,6 +8,4 @@ export default defineNuxtConfig({
   nitro: {
     compatibilityDate: '2024-12-02',
   },
-  // Ensure TypeScript is set to use ES modules in tsconfig.json
-  // Check if any modules need to be imported differently
 })
