@@ -63,7 +63,7 @@ css({
         lineHeight: '{text.xl.lineHeight}',
       },
       img: {
-        width: '100%',
+        width: '30%',
         aspectRatio: '1 / 1',
         objectFit: 'cover',
         borderRadius: '{radii.md}',
@@ -71,6 +71,9 @@ css({
           order: -1
         }
       },
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
     }
   }
 })

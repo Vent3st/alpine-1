@@ -1,3 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Your existing styles can follow below */
+/* Example existing styles */
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 body {
   background-color: $dt('alpine.body.backgroundColor');
   color: $dt('alpine.body.color');

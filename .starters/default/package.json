@@ -14,8 +14,15 @@
     "@nuxt/devtools": "^1.0.8",
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxtjs/plausible": "^0.2.4",
+    "@nuxtjs/tailwindcss": "^6.12.2",
     "@types/node": "^20.11.24",
+    "autoprefixer": "^10.4.20",
     "eslint": "^8.57.0",
-    "nuxt": "^3.10.3"
+    "nuxt": "^3.10.3",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15"
+  },
+  "dependencies": {
+    "@nuxtjs/strapi": "^2.0.0"
   }
 }
