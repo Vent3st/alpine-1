@@ -1,11 +1,26 @@
 <script lang="ts" setup>
-const alpine = useAppConfig().alpine
+import { useAppConfig } from '#imports'
+
+// Wrap in try-catch to handle SSR issues
+let alpine
+try {
+  alpine = useAppConfig().alpine
+} catch (e) {
+  console.error('Failed to load app config:', e)
+  // Provide fallback values
+  alpine = {
+    header: {
+      position: 'left',
+      logo: null
+    }
+  }
+}
 
 const show = ref(false)
 </script>
 
 <template>
-  <header :class="alpine.header.position || 'left'">
+  <header v-if="alpine" :class="alpine.header.position || 'left'">
     <div class="menu">
       <button @click="(show = !show)" aria-label="Navigation Menu">
         <svg width="24" height="24" viewBox="0 0 68 68" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
