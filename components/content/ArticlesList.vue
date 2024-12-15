@@ -8,7 +8,6 @@ const props = defineProps({
   }
 })
 
-// List of articles to hide
 const excludedArticles = [
   'get-started',
   'configure',
@@ -22,9 +21,8 @@ const { data: _articles } = await useAsyncData(props.path, async () => {
     .sort({ date: -1 })
     .find()
     
-  // Filter out unwanted articles
   return articles.filter(article => {
-    const path = article._path?.split('/').pop() // Get the filename without path
+    const path = article._path?.split('/').pop()
     return !excludedArticles.some(excluded => path?.includes(excluded))
   })
 })
@@ -34,57 +32,56 @@ const articles = computed(() => _articles.value || [])
 
 <template>
   <div v-if="articles?.length" class="articles-list">
-    <div class="featured">
-      <ArticlesListItem :article="articles[0]" :featured="true" />
+    <div class="vertical-layout">
+      <NuxtLink 
+        v-for="article in articles" 
+        :key="article._path"
+        :to="article._path" 
+        class="article-link"
+      >
+        <span class="title">{{ article.title }}</span>
+        <time>{{ formatDate(article.date) }}</time>
+      </NuxtLink>
     </div>
-    <div class="layout">
-      <ArticlesListItem v-for="(article, index) in articles.slice(1)" :key="index" :article="article" />
-    </div>
-  </div>
-  <div v-else class="tour">
-    <p>Seems like there are no articles yet.</p>
-    <p>
-      You can start by
-      <!-- eslint-disable-next-line -->
-      <ProseA href="https://alpine.nuxt.space/articles/write-articles">creating</ProseA> one in the <ProseCodeInline>articles</ProseCodeInline> folder.
-    </p>
   </div>
 </template>
 
 <style scoped lang="ts">
 css({
   '.articles-list': {
-    '@sm': {
-      px: '{space.12}',
-    },
-    '@md': {
-      px: 0,
-    },
-    '.featured': {
-      my: '{space.12}',
-      '@md': {
-        my: '{space.8}',
+    width: '100%',
+    '.vertical-layout': {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '{space.4}',
+      '.article-link': {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '{space.4}',
+        borderBottom: '1px solid {color.gray.200}',
+        '@dark': {
+          borderColor: '{color.gray.800}'
+        },
+        '&:hover': {
+          backgroundColor: '{color.gray.50}',
+          '@dark': {
+            backgroundColor: '{color.gray.800}'
+          }
+        },
+        '.title': {
+          color: '{color.gray.900}',
+          fontWeight: '{fontWeight.medium}',
+          '@dark': {
+            color: '{color.gray.100}'
+          }
+        },
+        'time': {
+          color: '{color.gray.500}',
+          fontSize: '{text.sm.fontSize}'
+        }
       }
-    },
-    '.layout': {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(1, minmax(0, 1fr))',
-      gap: '{space.12}',
-      '@md': {
-        gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-        gap: '{space.8}',
-      },
-      '@lg': {
-        gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-      },
     }
-  },
-  '.tour': {
-    minHeight: '30vh',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
   }
 })
 </style>
